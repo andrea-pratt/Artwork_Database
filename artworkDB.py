@@ -33,10 +33,6 @@ def create_database():
     db.create_tables([Artist, Artwork])
 
 
-
-# def search_by_artist():
-
-
 # def search_available_by_artist():
 
 
@@ -59,12 +55,6 @@ def search_by_artist_name(name):
     return artist
 
 
-def update_catches(name, new_catches):
-    Juggler.update(catches=new_catches).where(Juggler.name == name).execute()
-
-
-def delete_by_name(name_to_delete):
-    Juggler.delete().where(Juggler.name == name_to_delete).execute()
 
 
 
