@@ -1,5 +1,6 @@
 from peewee import *
 from config import db
+import os
 
 
 class BaseModel(Model):
@@ -27,22 +28,31 @@ class Artwork(BaseModel):
 
 
 
-def add_artist():
+def create_database():
+    db.connect()
+    db.create_tables([Artist, Artwork])
+
+    
+    
 
 
-def search_by_artist():
+
+# def add_artist():
 
 
-def search_available_by_artist():
+# def search_by_artist():
 
 
-def add_artwork():
+# def search_available_by_artist():
 
 
-def delete_artwork():
+# def add_artwork():
 
 
-def change_availability():
+# def delete_artwork():
+
+
+# def change_availability():
 
 
 
