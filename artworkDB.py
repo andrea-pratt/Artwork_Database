@@ -27,4 +27,32 @@ class Artwork(BaseModel):
 
 
 
+def add_artist():
+
+
+def search_by_artist():
+
+
+def search_available_by_artist():
+
+
+def add_artwork():
+
+
+def delete_artwork():
+
+
+def change_availability():
+
+
+
+
+
+
+
+
+
+
+
+
 
