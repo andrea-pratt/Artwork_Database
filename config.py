@@ -1,0 +1,1 @@
+db = SqliteDatabase('Artwork.sqlite')

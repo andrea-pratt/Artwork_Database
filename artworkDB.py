@@ -1,6 +1,6 @@
 from peewee import *
+from config import db
 
-db = SqliteDatabase('Artwork.sqlite')
 
 class BaseModel(Model):
     class Meta:
