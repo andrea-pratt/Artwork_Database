@@ -4,7 +4,6 @@ def main():
     setup()
 
 
-
 def setup():
     artworkDB.create_database()
 
@@ -19,6 +18,7 @@ def make_menu():
     menu.add_menu_option('6', 'Change artwork availability.', )
     menu.add_menu_option('Q', 'Quit program.', )
     return menu
+
 
 # def add_artist():
 
@@ -41,7 +41,3 @@ def make_menu():
 
 if __name__ == "__main__":
     main()
-
-
-
-
