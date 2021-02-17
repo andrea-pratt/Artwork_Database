@@ -7,8 +7,8 @@ class BaseModel(Model):
         database = db
 
 class Artist(BaseModel):
-    name = CharField(null=False, unique=True, constraints=[Check('length(name) >= 1'), Check('length(name) <= 30')])
-    email = CharField(null=False, constraints=[Check('length(email) >=1'), Check('length(email) <= 40')])
+    name = CharField(null=False, constraints=[Check('length(name) >= 1'), Check('length(name) <= 30')])
+    email = CharField(null=False, unique=True, constraints=[Check('length(email) >=1'), Check('length(email) <= 40')])
 
 
     def __str__(self):
