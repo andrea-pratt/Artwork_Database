@@ -1,7 +1,9 @@
 import artworkDB
 
 def main():
-    setup()
+    #setup()
+    artworkDB.create_database()
+    artworkDB.add_artist('Andrea Pratt', 'apratt1013@gmail.com')
 
 
 def setup():

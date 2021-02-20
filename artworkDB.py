@@ -18,14 +18,15 @@ class Artist(BaseModel):
 
 
 class Artwork(BaseModel):
-    artist = ForeignKeyField(Artist, backref='name')
+    #artist = ForeignKeyField(Artist, backref='name')
     name = CharField(null=False, constraints=[Check('length(name) >=1'), Check('length(name) <= 30')])
     price = DecimalField(null=False, constraints=[Check('price > 0'), Check('length(price) <= 5000')])
     available = BooleanField(null=False)
 
 
     def __str__(self):
-        return(f'Artist: {self.artist}, Name of Artwork: {self.name}, Price: {self.price}, Available: {self.available}')
+        #return(f'Artist: {self.artist}, Name of Artwork: {self.name}, Price: {self.price}, Available: {self.available}')
+        print('hello')
 
 
 
@@ -55,6 +56,8 @@ def add_artwork(artist, name, price, availability):
 
 
 def add_artist(name, email):
+    print(name)
+    print(email)
     new_artist = Artist(name=name, email=email)
     new_artist.save()
  
