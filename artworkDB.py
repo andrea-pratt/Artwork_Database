@@ -8,7 +8,8 @@ class BaseModel(Model):
         database = db
 
 class Artist(BaseModel):
-    name = CharField(null=False, constraints=[Check('length(name) >= 1'), Check('length(name) <= 30')])
+    # For simplicity, I've made the name a unique value
+    name = CharField(null=False, unique=True, constraints=[Check('length(name) >= 1'), Check('length(name) <= 30')])
     email = CharField(null=False, unique=True, constraints=[Check('length(email) >=1'), Check('length(email) <= 40')])
 
 
@@ -36,9 +37,17 @@ def create_database():
 # def search_available_by_artist():
 
 
-# def add_artwork():
+"""If the artist exists, add the artist, else, create the artist"""
+def add_artwork(artist, name, price, availability):
+    try:
+        new_artwork = Artwork(artist=artist, name=name, price=price, available=availability)
+        new_artwork.save()
+        return f'The artwork \'{name}\' by {artist} was added successfully'
+    except IntegrityError as e:
+        # Put some code here that asks for the new artist's information
+        print(e)
 
-
+    
 # def delete_artwork():
 
 
