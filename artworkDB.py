@@ -63,7 +63,8 @@ def delete_artwork(artwork_name):
     Artwork.delete().where(Artwork.name == artwork_name).execute()
 
 
-# def change_availability():
+def change_availability(artwork_name, availability):
+    Artwork.update(available=availability).where(Artwork.name == artwork_name).execute()
 
 
 def add_artist(name, email):
