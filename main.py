@@ -4,7 +4,7 @@ def main():
     #setup()
     artworkDB.create_database()
     #artworkDB.add_artist('Bob', 'bob@gmail.com')
-    artworkDB.add_artwork('Bob', 'False', 2900.00, False)
+    artworkDB.add_artwork('Bob', 'Before the Dawn', 2900.00, True)
     artworkDB.search_available_by_artist('Bob')
     
 
