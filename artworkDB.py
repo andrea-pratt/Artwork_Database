@@ -42,9 +42,7 @@ def search_artwork_by_artist(name):
 
 def search_available_by_artist(name):
     artworks = Artwork.select().join(Artist).where((Artist.name == 'Bob') & (Artwork.available == True))
-    
-    for art in artworks:
-        print(f'Artist: {art.artist} Name: {art.name} Price: {art.price}')
+    return artworks
 
 
 def get_artist_id(name):

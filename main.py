@@ -45,7 +45,10 @@ def search_by_artist():
 
 
 def search_available_by_artist():
-    pass
+    artist_name = view.get_user_input('What\'s the name of the artist you want to search for?')
+    artworks = artworkDB.search_available_by_artist(artist_name)
+    for art in artworks:
+        print(f'Artist: {art.artist} Name: {art.name} Price: {art.price}')
 
 
 def add_artwork():
