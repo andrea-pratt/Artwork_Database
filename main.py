@@ -27,6 +27,7 @@ def make_menu():
     menu.add_menu_option('4', 'Add artwork.', add_artwork)
     menu.add_menu_option('5', 'Delete artwork.', delete_artwork)
     menu.add_menu_option('6', 'Change artwork availability.', change_availability)
+    menu.add_menu_option('7', 'Display all artwork', display_all_artwork)
     menu.add_menu_option('Q', 'Quit program.', quite_program)
     return menu
 
@@ -66,6 +67,11 @@ def change_availability():
     artwork_name = view.get_user_input('What artwork would you like to change the availability for?')
     availability = view.get_user_input('Is this available? (Y/N)')
     artworkDB.change_availability(artwork_name, availability)
+
+
+def display_all_artwork():
+    artwork = artworkDB.display_all_artwork()
+    view.show_artwork_info(artwork)
 
 
 def quite_program():

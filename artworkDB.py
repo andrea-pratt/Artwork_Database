@@ -81,6 +81,11 @@ def search_by_artist_name(name):
     return artist
 
 
+def display_all_artwork():
+    artwork = Artwork.select()
+    return artwork
+
+
 
 
 
