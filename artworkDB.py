@@ -59,7 +59,8 @@ def add_artwork(artist, name, price, availability):
         print(e)
 
     
-# def delete_artwork():
+def delete_artwork(artwork_name):
+    Artwork.delete().where(Artwork.name == artwork_name).execute()
 
 
 # def change_availability():
