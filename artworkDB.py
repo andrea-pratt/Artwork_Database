@@ -19,7 +19,7 @@ class Artist(BaseModel):
 
 class Artwork(BaseModel):
     artist = ForeignKeyField(Artist, backref='artworks')
-    name = CharField(null=False, constraints=[Check('length(name) >=1'), Check('length(name) <= 30')])
+    name = CharField(null=False, unique=True, constraints=[Check('length(name) >=1'), Check('length(name) <= 30')])
     price = DecimalField(null=False, constraints=[Check('price > 0'), Check('length(price) <= 5000')])
     available = BooleanField(null=False)
 
