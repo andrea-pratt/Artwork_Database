@@ -6,9 +6,10 @@ def main():
     #artworkDB.add_artist('Bob', 'bob@gmail.com')
     #artworkDB.add_artwork('Bob', 'Before the Dawn', 100.00, False)
     #artworkDB.delete_artwork('After the Dawn')
-    artworkDB.search_available_by_artist('Bob')
-    artworkDB.change_availability('Before the Dawn', True)
-    artworkDB.search_available_by_artist('Bob')
+    #artworkDB.search_available_by_artist('Bob')
+    #artworkDB.change_availability('Before the Dawn', True)
+    #artworkDB.search_available_by_artist('Bob')
+    artworkDB.search_artwork_by_artist('Bob')
     
 
 
