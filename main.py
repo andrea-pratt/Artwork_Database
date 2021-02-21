@@ -58,7 +58,8 @@ def add_artwork():
 
 
 def delete_artwork():
-    pass
+    artwork_name = view.get_user_input('What\'s the name of the artwork you want to delete?')
+    artworkDB.delete_artwork(artwork_name)
 
 
 def change_availability():
