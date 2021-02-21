@@ -63,7 +63,9 @@ def delete_artwork():
 
 
 def change_availability():
-    pass
+    artwork_name = view.get_user_input('What artwork would you like to change the availability for?')
+    availability = view.get_user_input('Is this available? (Y/N)')
+    artworkDB.change_availability(artwork_name, availability)
 
 
 def quite_program():
