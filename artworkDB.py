@@ -36,8 +36,8 @@ def create_database():
 
 def search_artwork_by_artist(name):
     artworks = Artwork.select().join(Artist).where(Artist.name == name)
-    for art in artworks:
-        print(f'Artist: {art.artist} Name: {art.name} Price: {art.price}')
+    return artworks
+    
 
 
 def search_available_by_artist(name):
