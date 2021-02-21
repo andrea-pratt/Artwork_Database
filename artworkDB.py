@@ -1,4 +1,4 @@
-from peewee import *
+from peewee import Model, CharField, ForeignKeyField, DecimalField, BooleanField, Database, Check, IntegrityError
 from config import db
 import os
 

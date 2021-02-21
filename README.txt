@@ -1,1 +1,1 @@
-The menu feature, and some aspects of the view module were adapted from the readinglist application from class. Code is located at: https://github.com/claraj/readinglist
+The menu feature, and some aspects of the view and main modules were adapted from the readinglist application from class. Code is located at: https://github.com/claraj/readinglist
