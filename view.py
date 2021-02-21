@@ -10,3 +10,7 @@ def show_menu_get_choice(menu):
             print('Not a valid choice, try again.')
 
 
+def get_user_input(prompt):
+    return input(prompt)
+
+
