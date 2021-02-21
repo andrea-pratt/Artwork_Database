@@ -1,52 +1,62 @@
 import artworkDB
+from menu import Menu
+import view
+
 
 def main():
-    #setup()
-    artworkDB.create_database()
-    #artworkDB.add_artist('Bob', 'bob@gmail.com')
-    #artworkDB.add_artwork('Bob', 'Before the Dawn', 100.00, False)
-    #artworkDB.delete_artwork('After the Dawn')
-    #artworkDB.search_available_by_artist('Bob')
-    #artworkDB.change_availability('Before the Dawn', True)
-    #artworkDB.search_available_by_artist('Bob')
-    artworkDB.search_artwork_by_artist('Bob')
-    
+    setup()
+    menu = make_menu()
+    while True:
+        choice = view.show_menu_get_choice(menu)
+        function = menu.get_function(choice)
+        function()
+        if choice == 'Q':
+            break
 
 
+        
 def setup():
     artworkDB.create_database()
 
 
-# def make_menu():
-#     menu = Menu()
-#     menu.add_menu_option('1', 'Add new artist.', )
-#     menu.add_menu_option('2', 'Search by artist.', )
-#     menu.add_menu_option('3', 'Search available art by artist.', )
-#     menu.add_menu_option('4', 'Add artwork.', )
-#     menu.add_menu_option('5', 'Delete artwork.', )
-#     menu.add_menu_option('6', 'Change artwork availability.', )
-#     menu.add_menu_option('Q', 'Quit program.', )
-#     return menu
+def make_menu():
+    menu = Menu()
+    menu.add_menu_option('1', 'Add new artist.', add_artist)
+    menu.add_menu_option('2', 'Search by artist.', search_by_artist)
+    menu.add_menu_option('3', 'Search available art by artist.', search_available_by_artist)
+    menu.add_menu_option('4', 'Add artwork.', add_artwork)
+    menu.add_menu_option('5', 'Delete artwork.', delete_artwork)
+    menu.add_menu_option('6', 'Change artwork availability.', change_availability)
+    menu.add_menu_option('Q', 'Quit program.', quite_program)
+    return menu
 
 
-# def add_artist():
+def add_artist():
+    pass
 
 
-# def search_by_artist():
+def search_by_artist():
+    pass
 
 
-# def search_available_by_artist():
+def search_available_by_artist():
+    pass
 
 
-# def add_artwork():
+def add_artwork():
+    pass
 
 
-# def delete_artwork():
+def delete_artwork():
+    pass
 
 
-# def change_availability():
+def change_availability():
+    pass
 
 
+def quite_program():
+    print('GOODBYE.')
 
 if __name__ == "__main__":
     main()

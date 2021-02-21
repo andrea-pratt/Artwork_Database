@@ -1,3 +1,5 @@
+"""This class and the entire menu feature was adapted from the reading list project from class"""
+
 class Menu():
 
     def __init__(self):
