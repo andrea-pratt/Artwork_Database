@@ -14,3 +14,5 @@ def get_user_input(prompt):
     return input(prompt)
 
 
+def print_user_message(message):
+    print(message)

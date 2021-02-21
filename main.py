@@ -4,8 +4,6 @@ import view
 
 
 def main():
-    variable = view.get_user_input('What do you want to print?')
-    print(variable)
     setup()
     menu = make_menu()
     while True:
