@@ -32,7 +32,9 @@ def make_menu():
 
 
 def add_artist():
-    pass
+    artist_name = view.get_user_input('What\'s the name of the new artist?')
+    artist_email = view.get_user_input('What\'s the artist\'s email address?')
+    artworkDB.add_artist(artist_name, artist_email)
 
 
 def search_by_artist():
