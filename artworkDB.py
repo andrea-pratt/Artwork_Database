@@ -33,8 +33,15 @@ def create_database():
     db.create_tables([Artist, Artwork])
 
 
-# def search_available_by_artist():
+def search_available_by_artist(name):
+    artist = Artist.select().where(Artist.name == name) # this function currently works
+    for person in artist:
+        print(person.name)
+    
 
+def get_artist_by_name(name):
+    artist = Artist.get_or_none(Artist.name == name)
+    return artist
 
 """If the artist exists, add the artist, else, create the artist"""
 def add_artwork(artist, name, price, availability):
