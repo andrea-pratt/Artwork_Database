@@ -1,5 +1,4 @@
 
-
 def show_menu_get_choice(menu):
     while True:
         print(menu)
@@ -14,5 +13,10 @@ def get_user_input(prompt):
     return input(prompt)
 
 
-def print_user_message(message):
+def user_message(message):
     print(message)
+
+
+def show_artwork_info(artworks):
+    for art in artworks:
+        print(f'Artist: {art.artist} Name: {art.name} Price: {art.price}')

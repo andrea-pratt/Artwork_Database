@@ -40,19 +40,21 @@ def add_artist():
 def search_by_artist():
     artist_name = view.get_user_input('What\'s the name of the artist you want to search for?')
     artworks = artworkDB.search_artwork_by_artist(artist_name)
-    for art in artworks:
-        print(f'Artist: {art.artist} Name: {art.name} Price: {art.price}')
+    view.show_artwork_info(artworks)
 
 
 def search_available_by_artist():
     artist_name = view.get_user_input('What\'s the name of the artist you want to search for?')
     artworks = artworkDB.search_available_by_artist(artist_name)
-    for art in artworks:
-        print(f'Artist: {art.artist} Name: {art.name} Price: {art.price}')
+    view.show_artwork_info(artworks)
 
 
 def add_artwork():
-    pass
+    artist = view.get_user_input('What\'s the new artist\'s name?')
+    artwork_name = view.get_user_input('What is the new artwork called?')
+    price = view.get_user_input('What is the price of the artwork?')
+    availability = view.get_user_input('Is this item available? (Y/N)')
+    artworkDB.add_artwork(artist, artwork_name, price, availability)
 
 
 def delete_artwork():
