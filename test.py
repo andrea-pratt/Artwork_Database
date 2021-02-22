@@ -32,7 +32,7 @@ class TestArtworkDB(TestCase):
         artworkDB.add_artwork('Maria', 'A Distant Mountain', 960.00, False)
         artworkDB.add_artwork('Maria', 'In the End', 7600.00, True)
 
-
+    """Tests for add_artist function in artworkDB"""
     def test_add_artist_does_not_already_exist(self):
         self.add_generic_sample_data()
         artworkDB.add_artist('Matthew', 'matthew@gmail.com')
@@ -51,6 +51,21 @@ class TestArtworkDB(TestCase):
         self.add_generic_sample_data()
         with self.assertRaises(IntegrityError):
             artworkDB.add_artist('Bobby', 'bob@gmail.com')
+
+
+    def test_add_artist_name_null(self):
+        with self.assertRaises(IntegrityError):
+            artworkDB.add_artist(None, 'random_email@gmail.com')
+
+
+    def test_add_artist_email_null(self):
+        with self.assertRaises(IntegrityError):
+            artworkDB.add_artist('Harry', None)
+
+
+    """Tests for add_artwork function in artworkDB"""
+    
+
 
 
 if __name__ == '__main__':
