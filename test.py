@@ -96,8 +96,16 @@ class TestArtworkDB(TestCase):
 
  
     def test_search_available_by_artist(self):
-        
+        artworkDB.add_artist('Bob', 'bob@gmail.com')
+        artworkDB.add_artwork('Bob', 'Life of Insanity', 90, True)
+        artworkDB.add_artwork('Bob', 'Modern Age', 400, False)
+        artworkDB.add_artwork('Bob', 'Rain and Snow', 448, False)
+        artwork = artworkDB.search_available_by_artist('Bob')
+        for art in artwork:
+            self.assertEqual(art.name, 'Life of Insanity')
 
+        
+    def test_
     
 
 
