@@ -47,6 +47,12 @@ class TestArtworkDB(TestCase):
             artworkDB.add_artist('Bob', 'bobbyman@gmail.com')
 
 
+    def test_add_artist_email_already_exists(self):
+        self.add_generic_sample_data()
+        with self.assertRaises(IntegrityError):
+            artworkDB.add_artist('Bobby', 'bob@gmail.com')
+
+
 if __name__ == '__main__':
     unittest.main()
 
