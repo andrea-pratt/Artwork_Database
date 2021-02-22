@@ -39,7 +39,7 @@ def change_availability():
 
 
 def display_all_artwork():
-    artwork = artworkDB.display_all_artwork()
+    artwork = artworkDB.get_all_artwork()
     view.show_artwork_info(artwork)
 
 
