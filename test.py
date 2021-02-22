@@ -40,6 +40,12 @@ class TestArtworkDB(TestCase):
         self.assertIsNotNone(artist)
 
 
+    def test_add_artist_already_exists(self):
+        self.add_generic_sample_data()
+        with self.assertRaises(IntegrityError):
+            artworkDB.add_artist('Bob', 'bob@gmail.com')
+
+
 if __name__ == '__main__':
     unittest.main()
 
