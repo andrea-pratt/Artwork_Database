@@ -42,7 +42,7 @@ def search_available_by_artist(name):
     return artworks
 
 
-def display_all_artwork():
+def get_all_artwork():
     artwork = Artwork.select()
     return artwork
 
