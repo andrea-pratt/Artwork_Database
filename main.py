@@ -3,7 +3,7 @@ import view
 
 
 def main():
-    setup.setup_database()
+    setup.setup_data()
     menu = setup.make_menu()
     while True:
         choice = view.show_menu_get_choice(menu)

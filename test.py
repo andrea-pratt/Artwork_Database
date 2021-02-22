@@ -37,7 +37,7 @@ class TestArtworkDB(TestCase):
         self.add_generic_sample_data()
         artworkDB.add_artist('Matthew', 'matthew@gmail.com')
 
-        artist = Artist.get_or_none(Artist.name=='Matthjjjew' and Artist.email=='matthew@gmail.com')
+        artist = Artist.get_or_none(Artist.name=='Matthew', Artist.email=='matthew@gmail.com')
         self.assertIsNotNone(artist)
 
 
@@ -66,28 +66,18 @@ class TestArtworkDB(TestCase):
     """Tests for add_artwork function in artworkDB"""
     def test_add_artwork(self):
         #self.add_generic_sample_data()
-        artworkDB.add_artwork('Bob', 'Air is Empathy', 6600.00, True)
-        artwork = Artwork.get_or_none(Artwork.artist == 'Bob') #, Artwork.name == 'Air is Empathy' and Artwork.price == 6600.00 and Artwork.available == True)
+        artworkDB.add_artist('Bob', 'bob@comcast.net')
+        artworkDB.add_artwork('Bob', 'Air is Empathy', 6600, True)
+        artwork = Artwork.get_or_none(Artwork.name == 'Air is Empathy', Artwork.price == 6600, Artwork.available == True)
         self.assertIsNotNone(artwork)
-
-
-    def test_add_artwork_artist_does_not_exist(self):
-        pass
-
-
-    def test_add_artwork_name_already_exists(self):
-        pass
 
 
     """Tests for delete_artwork function in artworkDB"""
     def test_delete_artwork_by_name(self):
         self.add_generic_sample_data()
         artworkDB.delete_artwork('Simplicity Defined')
-        self.assertIsNone(Artwork.get_or_none(Artwork.name == 'Simplicity Defined'))
-    
-
-    def test_delete_artwork_that_does_not_exist(self):
-        pass
+        artwork = Artwork.get_or_none(Artwork.name == 'Simplicity Defined')
+        self.assertIsNone(artwork)
 
 
     """Tests for change_availability function in artworkDB"""
