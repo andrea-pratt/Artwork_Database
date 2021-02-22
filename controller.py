@@ -22,9 +22,9 @@ def search_available_by_artist():
 
 
 def add_artwork():
-    artist = view.get_user_input('What\'s the new artist\'s name?')
+    artist = view.get_user_input('What\'s the artist\'s name?')
     artwork_name = view.get_user_input('What is the new artwork called?')
-    price = view.get_user_input('What is the price of the artwork?')
+    price = view.get_decimal_input('What is the price of the artwork?')
     availability = view.get_user_input('Is this item available? (Y/N)')
     artworkDB.add_artwork(artist, artwork_name, price, availability)
 

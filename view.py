@@ -11,7 +11,17 @@ def show_menu_get_choice(menu):
 
 
 def get_user_input(prompt):
-    return input(prompt)
+    while True:
+        response = input(prompt)
+        if response != '':
+            return response
+
+
+def get_decimal_input(prompt):
+    while True:
+        response = input(prompt)
+        if response.isdecimal():
+            return response
 
 
 def user_message(message):
