@@ -65,7 +65,6 @@ class TestArtworkDB(TestCase):
 
     """Tests for add_artwork function in artworkDB"""
     def test_add_artwork(self):
-        #self.add_generic_sample_data()
         artworkDB.add_artist('Bob', 'bob@comcast.net')
         artworkDB.add_artwork('Bob', 'Air is Empathy', 6600, True)
         artwork = Artwork.get_or_none(Artwork.name == 'Air is Empathy', Artwork.price == 6600, Artwork.available == True)
@@ -84,15 +83,18 @@ class TestArtworkDB(TestCase):
     def test_change_artwork_availability(self):
         self.add_generic_sample_data()
         artworkDB.change_availability('Simplicity Defined', False)
-        artwork = Artwork.get_or_none(Artwork.name == 'Simplicity Defined' and Artwork.available == True)
+        artwork = Artwork.get_or_none(Artwork.name == 'Simplicity Defined', Artwork.available == False)
         self.assertIsNotNone(artwork)
 
 
-    # def test_change_artwork_availability_2(self):
-    #     self.add_generic_sample_data()
-    #     artworkDB.change_availability('Simplicity Defined', False)
-    #     artwork = Artwork.get_or_none(Artwork.name == 'Simplicity Defined' and Artwork.available == True)
-    #     self.assertIsNone(artwork)
+    def test_search_artwork_by_artist(self):
+        artworkDB.add_artist('Bob', 'bob@gmail.com')
+        artworkDB.add_artwork('Bob', 'Life of Insanity', 90, False)
+        artwork = artworkDB.search_artwork_by_artist('Bob')
+        for art in artwork:
+            self.assertEqual(art.name, 'Life of Insanity')
+
+ 
 
 
     
