@@ -95,7 +95,8 @@ class TestArtworkDB(TestCase):
             self.assertEqual(art.name, 'Life of Insanity')
 
  
-
+    def test_search_available_by_artist(self):
+        
 
     
 
