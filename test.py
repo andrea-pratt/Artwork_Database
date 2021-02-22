@@ -32,7 +32,16 @@ class TestArtworkDB(TestCase):
         artworkDB.add_artwork('Maria', 'In the End', 7600.00, True)
 
 
-       
+    def test_add_artist_does_not_already_exist(self):
+        self.add_generic_sample_data()
+        artworkDB.add_artist('Matthew', 'matthew@gmail.com')
+
+        artist = Artist.get_or_none(Artist.name == 'Matthew' and Artist.email == 'matthew@gmail.com')
+        self.assertIsNotNone(artist)
+
+
+if __name__ == '__main__':
+    unittest.main()
 
 
 
