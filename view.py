@@ -1,3 +1,4 @@
+"""These functions interact directly with the user"""
 
 def show_menu_get_choice(menu):
     while True:

@@ -2,14 +2,18 @@ from peewee import Model, CharField, ForeignKeyField, DecimalField, BooleanField
 from config import db_path
 import os
 
+# This database will enforce Foreign Key constraints
 db = SqliteDatabase(db_path, pragmas={'foreign_keys': 1})
 
+# The base model is used to link all subsequent models to the database
 class BaseModel(Model):
     class Meta:
         database = db
 
+
+"""Artist and Artwork classes are subclasses of the above BaseModel class, and are linked to the database through it"""
+
 class Artist(BaseModel):
-    # For simplicity, I've made the name a unique value
     name = CharField(null=False, unique=True, constraints=[Check('length(name) >= 1'), Check('length(name) <= 30')])
     email = CharField(null=False, unique=True, constraints=[Check('length(email) >=1'), Check('length(email) <= 40')])
 

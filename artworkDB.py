@@ -2,6 +2,8 @@ from models import Artist, Artwork, db
 from peewee import IntegrityError
 
 
+"""Functions in this module interact with the database"""
+
 def create_database():
     db.connect()
     db.create_tables([Artist, Artwork])
@@ -12,16 +14,14 @@ def add_artist(name, email):
     new_artist.save()
 
 
-"""If the artist exists, add the artist, else, create the artist"""
 def add_artwork(artist, name, price, availability):
     try:
         artist_id = _get_artist_id(artist)
         new_artwork = Artwork(artist=artist_id, name=name, price=price, available=availability)
         new_artwork.save()
-        return f'The artwork \'{name}\' by {artist} was added successfully'
-    except IntegrityError as e:
-        # Put some code here that asks for the new artist's information
-        print(e)
+        return f'The artwork \'{name}\' by {artist} was added successfully.'
+    except IntegrityError:
+        return 'I\'m sorry. There was an issue adding this art.'
 
 
 def delete_artwork(artwork_name):
@@ -38,7 +38,7 @@ def search_artwork_by_artist(name):
 
 
 def search_available_by_artist(name):
-    artworks = Artwork.select().join(Artist).where((Artist.name == 'Bob') & (Artwork.available == True))
+    artworks = Artwork.select().join(Artist).where((Artist.name == name) & (Artwork.available == True))
     return artworks
 
 
@@ -48,7 +48,7 @@ def get_all_artwork():
 
 
 def _get_artist_id(name):
-   artist = Artist.get_or_none(Artist.name == name) # will give error 'NonType has no attribute 'id'...if artist doesn't exist.
+   artist = Artist.get_or_none(Artist.name == name) 
    artist_id = artist.id
    return artist_id
 

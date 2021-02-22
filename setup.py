@@ -2,6 +2,9 @@ from artworkDB import create_database
 from menu import Menu
 import controller
 
+
+"""This module is used to set up the application when it starts"""
+
 def setup_database():
     create_database()
 

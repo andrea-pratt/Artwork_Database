@@ -1,10 +1,12 @@
 import artworkDB
 import view
 
+"""These functions call functions from view and artworkDB to interact with the user and the database respectively"""
+
 def add_artist():
     artist_name = view.get_user_input('What\'s the name of the new artist?')
     artist_email = view.get_user_input('What\'s the artist\'s email address?')
-    artworkDB.add_artist(artist_name, artist_email)
+    print(artworkDB.add_artist(artist_name, artist_email))
 
 
 def search_by_artist():
