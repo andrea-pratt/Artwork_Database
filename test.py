@@ -19,6 +19,7 @@ class TestArtworkDB(TestCase):
         self.db.drop_tables([Artist, Artwork])
         self.db.create_tables([Artist, Artwork])
 
+
     def add_generic_sample_data(self):
         artworkDB.add_artist('Bob', 'bob@gmail.com')
         artworkDB.add_artist('Maria', 'maria@gmail.com')
@@ -40,10 +41,10 @@ class TestArtworkDB(TestCase):
         self.assertIsNotNone(artist)
 
 
-    def test_add_artist_already_exists(self):
+    def test_add_artist_name_already_exists(self):
         self.add_generic_sample_data()
         with self.assertRaises(IntegrityError):
-            artworkDB.add_artist('Bob', 'bob@gmail.com')
+            artworkDB.add_artist('Bob', 'bobbyman@gmail.com')
 
 
 if __name__ == '__main__':
