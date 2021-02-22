@@ -1,16 +1,14 @@
 import unittest 
 from unittest import TestCase
 from unittest.mock import patch
-from peewee import *
+from peewee import Model, CharField, ForeignKeyField, DecimalField, BooleanField, Database, Check, IntegrityError, SqliteDatabase
 
 import config
 db = 'test_artwork.sqlite'
-db_config.database_path = db_path 
+config.db_path = db
 
-from models import Tree
-import controller 
-import database
-from database import TreeError
+from models import Artist, Artwork
+import artworkDB
 
 class TreeControllerTest(TestCase):
 
