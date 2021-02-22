@@ -4,7 +4,7 @@ from unittest.mock import patch
 from peewee import Model, CharField, ForeignKeyField, DecimalField, BooleanField, Database, Check, IntegrityError, SqliteDatabase
 
 import config
-db_path = 'test_artwork.sqlite'
+db_path = 'test_artwork.db'
 config.db_path = db_path
 
 from models import Artist, Artwork
@@ -37,7 +37,7 @@ class TestArtworkDB(TestCase):
         self.add_generic_sample_data()
         artworkDB.add_artist('Matthew', 'matthew@gmail.com')
 
-        artist = Artist.get_or_none(Artist.name == 'Matthew' and Artist.email == 'matthew@gmail.com')
+        artist = Artist.get_or_none(Artist.name=='Matthjjjew' and Artist.email=='matthew@gmail.com')
         self.assertIsNotNone(artist)
 
 
@@ -65,10 +65,10 @@ class TestArtworkDB(TestCase):
 
     """Tests for add_artwork function in artworkDB"""
     def test_add_artwork(self):
-        self.add_generic_sample_data()
+        #self.add_generic_sample_data()
         artworkDB.add_artwork('Bob', 'Air is Empathy', 6600.00, True)
-        art = Artwork.get_or_none(Artwork.artist == 'Bob' and Artwork.name == 'Air is Empathy' and Artwork.price == 6600.00 and Artwork.available == True)
-        self.assertIsNotNone(art)
+        artwork = Artwork.get_or_none(Artwork.artist == 'Bob') #, Artwork.name == 'Air is Empathy' and Artwork.price == 6600.00 and Artwork.available == True)
+        self.assertIsNotNone(artwork)
 
 
     def test_add_artwork_artist_does_not_exist(self):
@@ -85,6 +85,24 @@ class TestArtworkDB(TestCase):
         artworkDB.delete_artwork('Simplicity Defined')
         self.assertIsNone(Artwork.get_or_none(Artwork.name == 'Simplicity Defined'))
     
+
+    def test_delete_artwork_that_does_not_exist(self):
+        pass
+
+
+    """Tests for change_availability function in artworkDB"""
+    def test_change_artwork_availability(self):
+        self.add_generic_sample_data()
+        artworkDB.change_availability('Simplicity Defined', False)
+        artwork = Artwork.get_or_none(Artwork.name == 'Simplicity Defined' and Artwork.available == True)
+        self.assertIsNotNone(artwork)
+
+
+    # def test_change_artwork_availability_2(self):
+    #     self.add_generic_sample_data()
+    #     artworkDB.change_availability('Simplicity Defined', False)
+    #     artwork = Artwork.get_or_none(Artwork.name == 'Simplicity Defined' and Artwork.available == True)
+    #     self.assertIsNone(artwork)
 
 
     

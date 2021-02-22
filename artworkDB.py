@@ -48,7 +48,7 @@ def get_all_artwork():
 
 
 def _get_artist_id(name):
-   artist = Artist.get_or_none(Artist.name == name)
+   artist = Artist.get_or_none(Artist.name == name) # will give error 'NonType has no attribute 'id'...if artist doesn't exist.
    artist_id = artist.id
    return artist_id
 

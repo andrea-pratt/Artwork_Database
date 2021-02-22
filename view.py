@@ -18,5 +18,7 @@ def user_message(message):
 
 
 def show_artwork_info(artworks):
+    print('\n\n')
     for art in artworks:
-        print(f'Artist: {art.artist} Name: {art.name} Price: {art.price}')
+        print(f'Artist: {art.artist.name}   Name: {art.name}    Price: {art.price}  Available: {art.available}')
+    print('\n\n')
