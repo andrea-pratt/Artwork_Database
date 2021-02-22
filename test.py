@@ -10,7 +10,7 @@ config.db_path = db_path
 from models import Artist, Artwork
 import artworkDB
 
-class TreeControllerTest(TestCase):
+class TestArtworkDB(TestCase):
 
 
     def setup(self):
